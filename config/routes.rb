@@ -1,4 +1,9 @@
+require 'resque/server'
+
 JsbloggerCodemash::Application.routes.draw do
+
+  mount Resque::Server.new, at: "/resque"
+
   resources :articles
   resources :comments
   resource  :dashboard
